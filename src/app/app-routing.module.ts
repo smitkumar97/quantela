@@ -6,20 +6,20 @@ import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {
-    path: '', component: ProductsComponent
+    path: '', component: ProductsComponent            // default route
   },
   {
-    path:'charts', component: ChartsComponent
+    path:'charts', component: ChartsComponent         // show Chart
   },
   {
-    path:'login', component: LoginComponent
+    path:'login', component: LoginComponent           // login form
   },
   {
     path: 'users',
     loadChildren: () => import('./users/users.module').then((m) => m.UserModule)
   },
   {
-    path: '**', // Wildcart route
+    path: '**',                                       // Wildcart route
     redirectTo: '',
     pathMatch: 'full',
     component: ProductsComponent
