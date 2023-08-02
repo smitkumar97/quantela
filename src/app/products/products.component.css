@@ -1,0 +1,23 @@
+.container-fluid {
+  margin: 0;
+  padding: 0;
+}
+
+.heading {
+  text-align: center;
+  font-weight: 600 !important;
+  text-decoration: underline;
+}
+
+::ng-deep.mat-typography h1 {
+  font-weight: 600;
+}
+
+.product-image {
+  width: 250px;
+  height: 150px;
+}
+
+.search-input-box {
+  width: 30%;
+}
