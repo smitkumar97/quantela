@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -15,9 +16,9 @@ export class LoginComponent {
   ) {
     // creating instance of Login Form
     this.loginForm = this.fb.group({
-      userName: new FormControl('', [
+      email: new FormControl('', [
         Validators.required,
-        Validators.maxLength(20),
+        Validators.email,
       ]),
       password: new FormControl('', [
         Validators.required,
@@ -26,19 +27,6 @@ export class LoginComponent {
   }
 
   ngOnInit(): void {
-  }
-
-  createFormGroupInstance() {
-    // creating instance of Login Form
-    this.loginForm = this.fb.group({
-      userName: new FormControl('', [
-        Validators.required,
-        Validators.maxLength(20),
-      ]),
-      password: new FormControl('', [
-        Validators.required,
-      ])
-    });
   }
 
   // convenience getter for easy access to form fields
@@ -54,12 +42,13 @@ export class LoginComponent {
     }
   }
 
-  // fn to save username and password in local storage
+  // fn to save email and password in local storage
   saveUserCredentialsinLocalStorage(myForm: any) {
-    let userName = this.loginForm.controls['userName'].value;
+    let email = this.loginForm.controls['email'].value;
     let password = this.loginForm.controls['password'].value;
-    localStorage.setItem('username', userName);
-    localStorage.setItem('password', password);
+    let encryptedPassword = window.btoa(password);
+    localStorage.setItem('email', email);
+    localStorage.setItem('password', encryptedPassword);
     this.resetForm(myForm);
   }
 

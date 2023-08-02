@@ -10,30 +10,30 @@
       autofocus
       type="text"
       matInput
-      placeholder="Username"
-      formControlName="userName"
+      placeholder="Email"
+      formControlName="email"
     />
+    <mat-error
+      class="error"
+      *ngIf="
+        loginForm.get('email')?.touched &&
+        loginForm.get('email')?.errors &&
+        loginForm.get('email')?.hasError('required')
+      "
+    >
+      email is required
+    </mat-error>
+    <mat-error
+      class="error"
+      *ngIf="
+        loginForm.get('email')?.touched &&
+        loginForm.get('email')?.errors &&
+        loginForm.get('email')?.hasError('email')
+      "
+    >
+      Please enter a valid email
+    </mat-error>
   </mat-form-field>
-  <mat-error
-    class="error"
-    *ngIf="
-      loginForm.get('userName')?.touched &&
-      loginForm.get('userName')?.errors &&
-      loginForm.get('userName')?.hasError('required')
-    "
-  >
-    Username is required
-  </mat-error>
-  <mat-error
-    class="error"
-    *ngIf="
-      loginForm.get('userName')?.touched &&
-      loginForm.get('userName')?.errors &&
-      loginForm.get('userName')?.hasError('maxlength')
-    "
-  >
-    Username can be max 20 characters long
-  </mat-error>
   <mat-form-field>
     <mat-icon matPrefix>lock_outline</mat-icon>
     <input
@@ -42,17 +42,17 @@
       placeholder="Password"
       formControlName="password"
     />
+    <mat-error
+      class="error"
+      *ngIf="
+        loginForm.get('password')?.touched &&
+        loginForm.get('password')?.errors &&
+        loginForm.get('password')?.hasError('required')
+      "
+    >
+      password is required
+    </mat-error>
   </mat-form-field>
-  <mat-error
-    class="error"
-    *ngIf="
-      loginForm.get('password')?.touched &&
-      loginForm.get('password')?.errors &&
-      loginForm.get('password')?.hasError('required')
-    "
-  >
-    Password is required
-  </mat-error>
   <button
     type="submit"
     mat-raised-button
