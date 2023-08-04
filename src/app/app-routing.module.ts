@@ -15,6 +15,10 @@ const routes: Routes = [
     path:'login', component: LoginComponent           // login form
   },
   {
+    path: 'dashboard',
+    loadChildren: () => import('./dashboard/dashboard.module').then((m) => m.DashboardModule)
+  },
+  {
     path: 'users',
     loadChildren: () => import('./users/users.module').then((m) => m.UserModule)
   },

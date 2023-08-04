@@ -9,7 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { usersRoutingModule } from './users.routing';
+import { UsersRoutingModule } from './users-routing.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,7 @@ import { usersRoutingModule } from './users.routing';
     MatPaginatorModule,
     MatIconModule,
     MatButtonModule,
-    usersRoutingModule
+    UsersRoutingModule
   ],
   providers: [],
   bootstrap: []

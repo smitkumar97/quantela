@@ -1,0 +1,24 @@
+.container {
+  margin: 0;
+  padding: 0;
+}
+
+.gridster-container {
+  margin-top: 1rem;
+  height: 90vh;
+}
+
+.example-button-row {
+  margin: 8px;
+}
+
+.delete-btn button {
+  width: 30px;
+  height: 30px;
+  margin: 5px;
+}
+
+.delete-btn-container {
+  display: flex;
+  justify-content: space-between;
+}
