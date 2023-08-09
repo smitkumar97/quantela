@@ -19,3 +19,7 @@ form {
 .mat-mdc-card {
   box-shadow: none !important;
 }
+
+.form-group {
+  margin-bottom: 1rem;
+}

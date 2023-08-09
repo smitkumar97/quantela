@@ -1,3 +1,4 @@
+<script src="https://www.google.com/recaptcha/api.js?render={{siteKey}}"></script>
 <div class="login-container">
   <form
   [formGroup]="loginForm"
@@ -7,6 +8,7 @@
   <mat-form-field>
     <mat-icon matPrefix>person_outline</mat-icon>
     <input
+      class="email-input-box"
       autofocus
       type="text"
       matInput
@@ -37,6 +39,7 @@
   <mat-form-field>
     <mat-icon matPrefix>lock_outline</mat-icon>
     <input
+      class="password-input-box"
       type="password"
       matInput
       placeholder="Password"
@@ -53,7 +56,15 @@
       password is required
     </mat-error>
   </mat-form-field>
+  <!-- <div class="form-group">
+    <re-captcha
+      (resolved)="resolved($event)"
+      siteKey='{{siteKey}}'
+      formControlName="recaptcha"
+    ></re-captcha>
+  </div> -->
   <button
+    class="submit-btn"
     type="submit"
     mat-raised-button
     color="primary"

@@ -5,17 +5,22 @@ import { AppComponent } from './app.component';
 import { MatTableModule } from '@angular/material/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { ProductsComponent } from './products/products.component';
+import { ProductsComponent } from './components/products/products.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { ChartsComponent } from './charts/charts.component';
-import { LoginComponent } from './login/login.component';
+import { ChartsComponent } from './components/charts/charts.component';
+import { LoginComponent } from './components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
-
+import { RecaptchaModule, RecaptchaFormsModule } from 'ng-recaptcha';
+import { RECAPTCHA_V3_SITE_KEY, RecaptchaV3Module } from 'ng-recaptcha';
+import { environment } from './environments/environment';
+import { AddressFormComponent } from './components/address-form/address-form.component';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
 
 
 @NgModule({
@@ -24,6 +29,7 @@ import { MatCardModule } from '@angular/material/card';
     ProductsComponent,
     ChartsComponent,
     LoginComponent,
+    AddressFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,9 +44,19 @@ import { MatCardModule } from '@angular/material/card';
     FormsModule,
     MatCardModule,
     ReactiveFormsModule,
+    RecaptchaModule,
+    RecaptchaFormsModule,
+    RecaptchaV3Module,
     BrowserAnimationsModule,
+    MatSelectModule,
+    MatRadioModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: RECAPTCHA_V3_SITE_KEY,
+      useValue: environment.recaptcha.siteKey,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

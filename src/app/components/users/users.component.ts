@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import { ProductService } from './../product.service';
+import { ProductService } from '../products/product.service';
 
 @Component({
   selector: 'app-users',

@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ProductsComponent } from './products/products.component';
-import { ChartsComponent } from './charts/charts.component';
-import { LoginComponent } from './login/login.component';
+import { ProductsComponent } from './components/products/products.component';
+import { ChartsComponent } from './components/charts/charts.component';
+import { LoginComponent } from './components/login/login.component';
+import { AddressFormComponent } from './components/address-form/address-form.component';
 
 const routes: Routes = [
   {
@@ -15,12 +16,15 @@ const routes: Routes = [
     path:'login', component: LoginComponent           // login form
   },
   {
+    path:'form', component: AddressFormComponent
+  },
+  {
     path: 'dashboard',
-    loadChildren: () => import('./dashboard/dashboard.module').then((m) => m.DashboardModule)
+    loadChildren: () => import('./components/dashboard/dashboard.module').then((m) => m.DashboardModule)
   },
   {
     path: 'users',
-    loadChildren: () => import('./users/users.module').then((m) => m.UserModule)
+    loadChildren: () => import('./components/users/users.module').then((m) => m.UserModule)
   },
   {
     path: '**',                                       // Wildcart route
